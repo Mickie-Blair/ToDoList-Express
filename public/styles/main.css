@@ -1,0 +1,95 @@
+:root {
+    --black-haze: #ecf0ef;
+    --black-haze-light: #f9f9f9;
+    --barely-gray: #fcfcfc;
+    --carrot-orange: #f29423;
+    --cerulean: #0c9dc3;
+    --cerulean-dark: #115a6e;
+    --half-baked: #98c3d5;
+    --half-baked-dark: #81a8b9;
+    --harvest-gold: #e1b47c;
+    --harvest-gold-light: #f4d6b1;
+    --heather: #b7bbcc;
+    --light-blue: #b8d2df;
+    --light-blue-2: #dce9ef;
+    --lynch: #667890;
+    --lynch-light: #ced5de;
+    --shuttle-gray-light: #b6c0c4;
+    --shuttle-gray: #54646c;
+    --shuttle-gray-dark: #192023;
+    --squirrel: #96887e;  
+    --pale-green: #6dc292;
+    --pale-green-light:#c0f1d5;
+    --muted-red: #d29393;
+    --light_bg: #f9f9f917;
+    --score-green: #b4f3d0;
+    --score-yellow: #ffc;
+    --score-red: #eabdbd;
+    --light-green: #f2fef1;
+    --barely-blue: #f6fbfd;
+    --red-fw: #dc3545;
+    --orange-fw: #ff7e00;
+    --yellow-fw: #ffff00;
+    --lime-fw: #7eff00;
+    --blue-fw: #007eff;
+    --purple-fw: #7e00ff;
+    --red-fw-adjust: #fabbbb;
+    --orange-fw-adjust: #ffddbd;
+    --yellow-fw-adjust: #ffffc3;
+    --lime-fw-adjust: #d9f8ba;
+    --blue-fw-adjust: #c0dffe;
+    --purple-fw-adjust: #dec0fe;
+    --logo-color: #046380;
+    --shuttle-gray-medium: #73848c;
+  }
+
+  body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+  }
+  
+  body{ 
+    display: flex;
+    flex-direction: column;  
+    background-color: var(--barely-gray);
+    height: 100%;
+  } 
+
+  footer {
+    padding: .25rem 1rem;
+    background-color: var(--half-baked);
+    font-size: .8rem;
+    font-style: italic;
+    border-top: thin solid var(--half-baked-dark);
+  }
+
+  .main-nav{
+    background-color: var(--half-baked);
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0 1rem 0 1rem;
+    align-items: center;
+    border-bottom: thin solid var(--half-baked-dark);
+  }
+
+  .main-nav div{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: .35rem;
+  }
+
+  .nav-image{
+    width: auto;
+    height: 30px;
+    margin: auto;
+  }
+
+  .main{
+    flex-grow: 1!important;
+    padding: 1rem;
+  }
