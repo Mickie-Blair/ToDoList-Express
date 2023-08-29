@@ -1,0 +1,26 @@
+{
+  "name": "todolist-express",
+  "version": "1.0.0",
+  "description": "ToDoList Using Express/NodeJS",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mickie-Blair/ToDoList-Express.git"
+  },
+  "author": "Mickie Blair",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mickie-Blair/ToDoList-Express/issues"
+  },
+  "homepage": "https://github.com/Mickie-Blair/ToDoList-Express#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  }
+}
