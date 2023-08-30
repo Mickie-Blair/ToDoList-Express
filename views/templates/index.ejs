@@ -4,7 +4,39 @@
 <body>
     <%- include('../partials/header.ejs'); %>
     <div class="main">
+        <div class="btn-div">  
+            <% for (let item of lists){ %>         
+            <button class="btn category_btn" list="<%= item.name %>"><%= item.name %></button>       
+            <% }%>
+
+            <button class="btn category_btn active" list="All">All</button> 
+        </div>
         
+        
+
+        <div class="lists-div">
+           
+            <% for (let item of lists){ %>
+                <div class="category_div active" list="<%= item.name %>">
+                    <div class="list-header">
+                        <h2><%= item.name %> Tasks - <%= item.tasks.length %></h2> 
+                        <button class="btn add_task" list="<%= item.name %>">Add</button>
+                    </div>
+                    <div class="task-list">
+                        <div class="tasks">
+                            <% if (item.tasks.length === 0) { %>
+                                <div>No Tasks</div>                                
+                            <% } else { %>
+                                <ul>
+                                </ul>
+                            <% } %>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            <% }%>  
+        </div>        
     </div>
     <%- include("../partials/footer.ejs")%>
 </body>
