@@ -5,8 +5,22 @@ const port = 3000;
 
 app.use(express.static("public"));
 
+let lists =  [ 
+    {
+        name: "Daily",
+        tasks: [],
+    },
+    {
+        name: "Work",
+        tasks: [],
+    },
+]
+
+
 app.get('/', (req, res) => {
-    res.render('templates/index.ejs');
+    let data = {};
+    data['lists'] = lists; 
+    res.render('templates/index.ejs', data);
 });
 
 app.listen(port, ()=>{
