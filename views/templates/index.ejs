@@ -4,6 +4,7 @@
 <body>
     <%- include('../partials/header.ejs'); %>
     <div class="main">
+        
         <div class="btn-div">  
             <% for (let item of lists){ %>         
             <button class="btn category_btn" list="<%= item.name %>"><%= item.name %></button>       
@@ -15,6 +16,48 @@
         
 
         <div class="lists-div">
+            <div class="form_div" id="form_div">
+                <form class="add_form" id="add_task">
+                    <div class="form-header">
+                        <div>
+                            <h3>Add Task</h3>
+                        </div>
+                        <div>
+                            <button type="button" class="btn close_btn" id="close">&#10005;</button>
+                        </div>
+                        
+                    </div>
+                    <div class="form-body">
+                        <div class="form-field display_flex_row list_row">
+                            <% for (let item of lists){ %> 
+                                <div class="display_flex_row">
+                                    <div class="">
+                                        <input type="radio" name="list" value="<%= item.name %>"/> 
+                                    </div>
+                                    <div class="">
+                                        <label><%= item.name %></label>
+                                    </div> 
+                                </div>  
+                                     
+                                     
+                            <% }%>
+                        </div>
+
+                        <div class="task_text">
+                            <div>
+                                <label>Task:</label>
+                            </div>
+                            
+                            <textarea class="form_control_modified" name="task_text"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-footer">
+                        <button type="submit" class="btn save_btn" id="save">Save</button>
+                    </div>
+                     
+                </form>
+                
+            </div>
            
             <% for (let item of lists){ %>
                 <div class="category_div active" list="<%= item.name %>">
