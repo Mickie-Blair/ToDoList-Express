@@ -43,6 +43,10 @@
     --shuttle-gray-medium: #73848c;
   }
 
+  *{
+    box-sizing: border-box;
+  }
+
   body, html {
     height: 100%;
     width: 100%;
@@ -266,6 +270,8 @@
 
   .form-body{
     flex-grow: 1!important;
+    display: flex;
+    flex-direction: column;
   }
 
   .form-footer{
@@ -285,6 +291,9 @@
 
   .task_text{
     padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   .display_flex_row{
@@ -344,8 +353,17 @@
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.task_text{
+  display: flex;
+  flex-direction: column;
+}
 
-    
+.textarea_div{
+  flex-grow: 1;
+}
+.textarea_div  textarea{
+  height: 100%;
+}  
 
   @media (min-width: 1000px) {
     .lists-div{        

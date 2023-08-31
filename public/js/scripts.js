@@ -20,6 +20,9 @@ function closeWithoutSave(){
     if(radio){
         radio.checked = false;
     }
+
+    let task_text = document.querySelector('[name="task_text"]');
+    task_text.value = null;
 }
 
 document.querySelectorAll('.add_task').forEach(item =>{
