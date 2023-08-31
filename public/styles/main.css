@@ -160,6 +160,10 @@
     height: 100%;   
   }
 
+  .equal-columns > * {
+    flex: 1;
+  }
+
   .category_div.active{
     display: flex;
     flex-direction: column;
@@ -321,7 +325,7 @@
     font-size: 18px;
   }
 
-  input[type=radio]{
+  input[type=radio], input[type=checkbox]{
     display: inline-block;
     width: 18px;
     height: 18px;
@@ -363,7 +367,18 @@
 }
 .textarea_div  textarea{
   height: 100%;
-}  
+}
+
+.list-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.strike {
+  text-decoration: line-through;
+}
 
   @media (min-width: 1000px) {
     .lists-div{        

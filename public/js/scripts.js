@@ -1,5 +1,15 @@
 console.log("Loading Scripts");
 
+document.querySelectorAll('.update_task').forEach(item =>{
+    item.addEventListener('change' , updateTask)
+});
+
+function updateTask(event){
+    let form = event.target.form;
+    console.log('form', form)
+    form.submit();
+}
+
 document.querySelectorAll('#add_task').forEach(item =>{
     item.addEventListener('submit' , addTask)
 });
@@ -7,6 +17,11 @@ document.querySelectorAll('#add_task').forEach(item =>{
 function addTask(event){
     event.preventDefault();
     console.log("Prevented");
+    let radio = document.querySelector( 'input[name="list"]:checked');
+    let task_text = document.querySelector('[name="task_text"]').value;
+    if(radio && task_text!= ""){
+        event.target.submit();
+    }
 
 }
 
@@ -22,7 +37,7 @@ function closeWithoutSave(){
     }
 
     let task_text = document.querySelector('[name="task_text"]');
-    task_text.value = null;
+    task_text.value = "";
 }
 
 document.querySelectorAll('.add_task').forEach(item =>{
