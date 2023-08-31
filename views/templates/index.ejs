@@ -6,8 +6,8 @@
     <div class="main">
         
         <div class="btn-div">  
-            <% for (let item of lists){ %>         
-            <button class="btn category_btn" list="<%= item.name %>"><%= item.name %></button>       
+            <% for (let key in lists){ %>         
+            <button class="btn category_btn" list="<%= key %>"><%= key %></button>       
             <% }%>
 
             <button class="btn category_btn active" list="All">All</button> 
@@ -15,9 +15,9 @@
         
         
 
-        <div class="lists-div">
+        <div class="lists-div equal-columns">
             <div class="form_div" id="form_div">
-                <form class="add_form" id="add_task">
+                <form method="POST" action="/create_task" class="add_form" id="add_task">
                     <div class="form-header">
                         <div>
                             <h3>Add Task</h3>
@@ -29,13 +29,13 @@
                     </div>
                     <div class="form-body">
                         <div class="form-field display_flex_row list_row">
-                            <% for (let item of lists){ %> 
+                            <% for (let key in lists){ %> 
                                 <div class="display_flex_row">
                                     <div class="">
-                                        <input type="radio" name="list" value="<%= item.name %>"/> 
+                                        <input type="radio" name="list" value="<%= key %>"/> 
                                     </div>
                                     <div class="">
-                                        <label><%= item.name %></label>
+                                        <label><%= key %></label>
                                     </div> 
                                 </div>  
                                      
@@ -60,20 +60,44 @@
                 
             </div>
            
-            <% for (let item of lists){ %>
-                <div class="category_div active" list="<%= item.name %>">
+            <% for (let key in lists){ %>
+                <div class="category_div active" list="<%= key %>">
                     <div class="list-header">
-                        <h2><%= item.name %> Tasks - <%= item.tasks.length %></h2> 
-                        <button class="btn add_task" list="<%= item.name %>">Add</button>
+                        <h2><%= key %> Tasks - <%= lists[key].length %></h2> 
+                        <button class="btn add_task" list="<%= key %>">Add</button>
                     </div>
                     <div class="task-list">
                         <div class="tasks">
-                            <% if (item.tasks.length === 0) { %>
+                            <% if (lists[key].length === 0) { %>
                                 <div>No Tasks</div>                                
                             <% } else { %>
-                                <ul>
-                                </ul>
+                                
+                                <% for (let task of lists[key]) { %>
+                                    <form method="POST" action="/update_task/<%= key %>/<%= task.id %>" class="update_form">
+                                    <% if (task.complete) { %>
+                                        <div class="list-item">
+                                            <div>
+                                                <input class="update_task" type="checkbox" name="update" checked/> 
+                                            </div>
+                                            <div class="strike">
+                                                <%= task.text %>
+                                            </div>
+                                        </div>
+                                    <% } else { %>
+                                        <div class="list-item">
+                                            <div>
+                                                <input class="update_task" type="checkbox" name="update" /> 
+                                            </div>
+                                            <div>
+                                                <%= task.text %>
+                                            </div>
+                                        </div>
+                                    <% } %>
+                                     </form>
+                                <% } %>
+                               
                             <% } %>
+                        
                         </div>
                     </div>
                     
