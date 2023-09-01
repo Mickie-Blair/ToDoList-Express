@@ -1,12 +1,20 @@
 import express from "express";
 import bodyParser from "body-parser";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 const port = 3000;
+
+import programmingLanguagesRouter from "./routes/programmingLanguages.js";
+
+
 let current_id = 3;
+
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
-
+app.use("/programming-languages", programmingLanguagesRouter);
 
 let lists = {
                 "Daily": [],
@@ -16,6 +24,8 @@ let lists = {
 app.get('/', (req, res) => {
     let data = {};
     data['lists'] = lists; 
+
+    // connectToDB();
     res.render('templates/index.ejs', data);
 });
 
@@ -29,9 +39,22 @@ app.post('/update_task/:listName/:taskID/', (req, res) => {
     res.redirect("/");
 });
 
+app.use("/programming-languages", programmingLanguagesRouter);
+/* Error handler middleware */
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  console.error(err.message, err.stack);
+  res.status(statusCode).json({ message: err.message });
+  return;
+});
+
 app.listen(port, ()=>{
     console.log(`App listening on port ${port}`);
 });
+
+
+
+
 
 
 function createTask(req, res) {
